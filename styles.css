@@ -48,18 +48,27 @@ body {
   letter-spacing: -0.04em;
 }
 
-.instagram-icon {
+.social-icons {
   margin: 0.5vw 0.5vw 0 0;
 }
 
-.instagram-icon svg {
+.social-icons li {
+  list-style: none;
+  display: inline-block;
+}
+
+.social-icons li:not(:last-child) {
+  margin-right: 0.25rem;
+}
+
+.social-icons svg {
   height: 1.75rem;
   fill: var(--secondary-color);
   transition: fill 0.25s ease;
 }
 
 @media (hover: hover) {
-  .instagram-icon svg:hover {
+  .social-icons svg:hover {
     fill: var(--primary-color);
   }
 }
@@ -75,8 +84,14 @@ body {
     margin: 0 0 0 3vw;
   }
 
-  .instagram-icon {
+  .social-icons {
+    width: 100%;
+    text-align: right;
     margin: 1vw 1vw 0 0;
+  }
+
+  .social-icons li:not(:last-child) {
+    margin-right: 0;
   }
 }
 
