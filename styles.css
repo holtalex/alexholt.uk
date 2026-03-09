@@ -85,13 +85,18 @@ body {
   .hero h1 {
     font-size: calc(100vw / 3);
     line-height: 1;
-    margin: 0 0 0 3vw;
+    margin: 0 0 3vw 0;
+    writing-mode: sideways-lr;
   }
 
   .social-icons {
     width: 100%;
     text-align: right;
     margin: 1vw 1vw 0 0;
+  }
+
+  .social-icons li {
+    display: block;
   }
 
   .social-icons li:not(:last-child) {
