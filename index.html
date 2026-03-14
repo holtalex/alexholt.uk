@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
   <link rel="stylesheet" href="styles.css?v=3">
 
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
@@ -29,7 +29,8 @@
   <section>
     <div class="hero">
       <div class="hero-title">
-        <h1>alex holt.</h1>
+        <h1 aria-label="alex holt"><span aria-hidden="true">a</span><span aria-hidden="true">l</span><span aria-hidden="true">e</span><span aria-hidden="true">x</span> <span aria-hidden="true">h</span><span aria-hidden="true">o</span><span aria-hidden="true">l</span><span aria-hidden="true">t</span><span aria-hidden="true">.</span></h1>
+        <!-- aria-label added so that screen readers can stil read this as a normal heading, but while allowing for hover effects on individual letters. aria-hidden then tells the screen reader to ignore each individual letter. -->
       </div>
       
       <div class="social-icons">
@@ -41,62 +42,59 @@
     </div>
   </section>
 
-  <!-- PROJECTS SECTION -->
+  <!-- ABOUT SECTION -->
 
-  <section class="projects-section" id="projects-section">
-    <div class="projects-sticky">
-      <h2 class="projects-title" id="projects-title">Projects</h2>
+  <section class="about-section">
+    <div class="about">
+      <h2>bio</h2>
+      <div class="about-list">
 
-      <a href="https://alexholt.uk" target="_blank">
-        <div class="project-name" id="project-0">
-          <span class="project-name-label">Personal Website</span>
-          <div class="project-name-divider"></div>
-          <p class="project-name-desc">A website built by me, for me. It showcases the games I am playing, and is the precursor to this site.</p>
+        <div class="about-item">
+          <h3>background</h3>
+          <p>from cambridge (uk, not the knock-off one), studied computer science at school, but since then i've learnt web development from scratch, thanks to online tutorials and a lot of patience</p>
         </div>
-      </a>
-      <a href="#">
-        <div class="project-name" id="project-1">
-          <span class="project-name-label">This Site</span>
-          <div class="project-name-divider"></div>
-          <p class="project-name-desc">The website you're currently looking at - built with a bold yet minimal design, to showcase what I can do.</p>
-        </div>
-      </a>
-      <a href="https://meetcarrot.com/weather/" target="_blank">
-        <div class="project-name" id="project-2">
-          <span class="project-name-label">Restaurant</span>
-          <div class="project-name-divider"></div>
-          <p class="project-name-desc">A good restaurant focuses on food. This website is made to keep the focus on what they do best.</p>
-        </div>
-      </a>
-      <a href="https://holtalex.github.io/Bobs-Solicitors/" target="_blank">
-        <div class="project-name" id="project-3">
-          <span class="project-name-label">Bob's Solicitors</span>
-          <div class="project-name-divider"></div>
-          <p class="project-name-desc">While not built for a specific law firm, this website is professional, while retaining a clean and elegant design.</p>
-        </div>
-      </a>
-    </div>
-  </section>
 
-  <!-- CONTACT SECTION -->
-
-  <section class="contact-section" id="contact-section">
-    <div class="contact-sticky">
-      <h2 class="contact-title" id="contact-title">Contact</h2>
-      <a class="contact-button" href="mailto:enquiries@alexholt.uk">enquiries@alexholt.uk</a>
-
-      <!-- FOOTER -->
-
-      <div class="footer">
-        <div class="footer-link-container" id="footer-links">
-          <a href="https://github.com/holtalex/Personal-site" target="_blank" class="footer-link">Source Code</a>
-          <a href="https://alexholt.uk/privacy" target="_blank" class="footer-link">Privacy Policy</a>
+        <div class="about-item">
+          <h3>web dev</h3>
+          <p>i've always had an interest in coding, having previously dabbled in python, and very briefly in game dev, but more recently i've found web development to be the thing that I enjoy most.</p>
         </div>
+
+        <div class="about-item">
+          <h3>other interests</h3>
+          <p>apparently I just can't get away from a screen, because when not coding, i'm playing a game - all time favourites include <a href="https://store.steampowered.com/bundle/234/Portal_Bundle/" target="_blank" class="about-link">both portal games</a>, <a href="https://store.steampowered.com/app/1237970/Titanfall_2/" target="_blank" class="about-link">titanfall 2</a>, and <a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" target="_blank" class="about-link">cyberpunk 2077</a>.</p>
+        </div>
+
+      </div>
+
+      <h2>projects</h2>
+      <div class="about-list">
+        
+        <div class="about-item">
+          <a href="#" target="_blank" class="about-link">
+            <h3>quill</h3>
+            <p>a fully-functional journaling app, complete with user logins, and databases for storing journal entries - this site is modern, easy to use, and works great on all platforms.</p>
+          </a>
+        </div>
+
+        <div class="about-item">
+          <a href="#" target="_blank" class="about-link">
+            <h3>bob's solicitors</h3>
+            <p>designed to level-up the more basic design used by many small, local law firms - this site has everything a solicitor could want, showcasing the practice areas, office locations, and contact details.</p>
+          </a>
+        </div>
+
+        <div class="about-item">
+          <a href="#" target="_blank" class="about-link">
+            <h3>personal site</h3>
+            <p>originally built as the pre-cursor to this site, my personal site (and first ever website) showcased what games I was playing, my new year's resolutions, and the projects I was working on.</p>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <script src="scripts.js"></script>
+  <!-- <script src="scripts.js"></script> -->
 
 </body>
 </html>

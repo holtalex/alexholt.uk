@@ -23,9 +23,14 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
   color: var(--primary-color);
   background-color: var(--background-color);
+}
+
+@supports (font-variation-settings: normal) {
+  body { font-family: InterVariable, sans-serif; }
 }
 
 
@@ -47,6 +52,7 @@ body {
 
 .hero h1 {
   font-size: calc(100vw / 5);
+  font-weight: 500;
   margin: 0 0 1vw 1vw;
   line-height: 0.75;
   letter-spacing: -0.04em;
@@ -72,6 +78,20 @@ body {
 }
 
 @media (hover: hover) {
+  /* Add hover effects for individual letters */
+  .hero h1 span {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+
+  .hero h1 span:nth-child(odd):hover {
+    transform: skewX(-15deg);
+  }
+
+  .hero h1 span:nth-child(even):hover {
+    transform: skewX(15deg);
+  }
+
   .social-icons svg:hover {
     fill: var(--primary-color);
   }
@@ -105,237 +125,67 @@ body {
 }
 
 
-/* PROJECTS SECTION */
+/* ABOUT SECTION */
 
 
-.projects-section {
-  height: 300vh;
-  max-width: 2000px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.projects-sticky {
-  position: sticky;
-  top: 0;
+.about-section {
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  width: 95%;
+  margin: 10vh auto 0 auto;
 }
 
-/* Title */
-.projects-title {
-  position: absolute;
-  font-size: clamp(6.4rem, 12vw, 16rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  color: var(--primary-color);
-  opacity: 0;
-  transform: translateY(0);
-  transition: none; /* driven by JS */
-  z-index: 1;
+.about {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
 
-/* project name items */
-.project-name {
-  position: absolute;
-  opacity: 0;
-  text-decoration: none;
-  transform: translateY(60px);
-  transition: none; /* scroll-driven, handled by JS */
-
-/* Layout for the expandable card */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.project-name-label {
-  font-size: clamp(1.6rem, 2.5vw, 2.56rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--secondary-color);
-  transform: translateY(0);
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.25s ease;
-}
-
-@media (hover: hover) {
-  .project-name:hover .project-name-label {
-    transform: translateY(-6px);
-    color: var(--primary-color);
-  }
-}
-
-/* The divider line */
-.project-name-divider {
-  width: 0%;
-  height: 1px;
-  background: var(--primary-color);
-  margin-top: 6px;
-  transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-@media (hover: hover) {
-  .project-name:hover .project-name-divider {
-    width: 100%;
-  }
-}
-
-/* Description text */
-.project-name-desc {
-  font-size: clamp(1.12rem, 1.1vw, 1.36rem);
+.about h2 {
+  font-size: 4rem;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  color: var(--secondary-color);
-  line-height: 1.5;
-  max-width: 22ch;
-  margin-top: 0;
+}
 
-  /* Hidden state */
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-8px);
-  overflow: hidden;
+.about-list:not(:last-child) {
+  margin-bottom: 10rem;
+}
 
-  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease 0.05s, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.05s, margin-top 0.35s ease;
+.about-item:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.about-item h3 {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.about-item p{
+  font-size: 2.5rem;
+  font-weight: 250;
+}
+
+.about-link {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
 }
 
 @media (hover: hover) {
-  .project-name:hover .project-name-desc {
-    max-height: 6em;
-    opacity: 1;
-    transform: translateY(0);
-    margin-top: 8px;
+  .about-link:hover {
+    transform: skew(-12deg);
   }
-}
-
-#project-0 {
-  top: 28%;
-  left: 12%;
-}
-
-#project-1 {
-  bottom: 22%;
-  right: 14%;
-}
-
-#project-2 {
-  bottom: 28%;
-  left: 18%;
-}
-
-#project-3 {
-  top: 32%;
-  right: 12%;
 }
 
 @media (max-width: 768px) {
-  #project-0 {
-    top: 29%;
-    left: 12%;
+  .about {
+    grid-template-columns: 1fr;
   }
 
-  #project-1 {
-    bottom: 27%;
-    right: 9%;
+  .about h2:not(:last-child) {
+    margin-bottom: 2rem;
   }
 
-  #project-2 {
-    bottom: 31%;
-    left: 10%;
-  }
-
-  #project-3 {
-    top: 32%;
-    right: -12%;
-  }
+  .about-list:not(:last-child) {
+  margin-bottom: 5rem;
 }
-
-
-/* CONTACT SECTION */
-
-
-.contact-section {
-  height: 300vh;
-}
-
-.contact-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.contact-inner {
-  display: flex;
-  justify-content: center;
-}
-
-.contact-title {
-  position: absolute;
-  font-size: clamp(6.4rem, 12vw, 16rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  color: var(--primary-color);
-  opacity: 0;
-  transform: translateY(0);
-  transition: none; /* driven by JS */
-  z-index: 1;
-}
-
-.contact-button {
-  position: absolute;
-  font-size: clamp(1.6rem, 2.5vw, 2.56rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--secondary-color);
-  text-decoration: none;
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.25s ease;
-}
-
-@media (hover: hover) {
-  .contact-button:hover {
-    color: var(--primary-color);
-  }
-}
-
-
-/* FOOTER */
-
-
-.footer {
-  position: absolute;
-  bottom: 0.5vw;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  font-size: 1.6rem;
-}
-
-.footer-link-container {
-  position: absolute;
-  display: flex;
-  gap: 3.2rem;
-}
-
-.footer-link {
-  text-decoration: none;
-  color: var(--secondary-color);
-  transition: color 0.25s ease;
-}
-
-.footer-link:hover {
-  color: var(--primary-color);
-}
-
-@media (max-width: 768px) {
-  .footer {
-    bottom: 1vw;
-  }
 }
