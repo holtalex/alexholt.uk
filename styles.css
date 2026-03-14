@@ -109,6 +109,7 @@ body {
     writing-mode: sideways-lr;
     position: absolute;
     right: 0;
+    overflow: hidden;
   }
 
   .social-icons {
