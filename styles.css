@@ -107,10 +107,11 @@ body {
     line-height: 1;
     margin: 0 0 3vw 0;
     writing-mode: sideways-lr;
+    position: absolute;
+    right: 0;
   }
 
   .social-icons {
-    width: 100%;
     text-align: right;
     margin: 1vw 1vw 0 0;
   }
@@ -129,7 +130,6 @@ body {
 
 
 .about-section {
-  height: 100vh;
   width: 95%;
   margin: 10vh auto 0 auto;
 }
