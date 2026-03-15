@@ -205,7 +205,6 @@ body {
 .contact-container {
   width: 95%;
   margin: 0 auto;
-  /* padding: 5vh 0; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -216,8 +215,7 @@ body {
 }
 
 .contact-container h2 {
-  /* font-size: 6rem; */
-  font-size: 3vw;
+  font-size: clamp(6rem, 3vw, 3vw);
   font-weight: 400;
   margin-bottom: 1.6rem;
 }
@@ -231,7 +229,6 @@ body {
   display: inline-block;
   text-decoration: none;
   color: inherit;
-  /* font-size: 5rem; */
   font-size: 5vw;
   transition: transform 0.25s ease;
 }
@@ -272,7 +269,7 @@ body {
 }
 
 .footer h2 {
-  font-size: 2vw;
+  font-size: clamp(4rem, 2vw, 2vw);
   font-weight: 500;
 }
 
@@ -281,7 +278,7 @@ body {
 }
 
 .footer a {
-  font-size: 1vw;
+  font-size: clamp(2rem, 1vw, 1vw);
   display: inline-block;
   text-decoration: none;
   color: inherit;
