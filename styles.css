@@ -157,9 +157,18 @@ body {
   font-size: 3rem;
   font-weight: 300;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.about-item p{
+.about-item-note {
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: var(--secondary-color);
+}
+
+.about-item p {
   font-size: 2.5rem;
   font-weight: 200;
 }
@@ -187,8 +196,8 @@ body {
   }
 
   .about-list:not(:last-child) {
-  margin-bottom: 5rem;
-}
+    margin-bottom: 5rem;
+  }
 }
 
 
