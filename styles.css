@@ -5,15 +5,17 @@
 }
 
 :root {
-  --primary-color: #000;
-  --secondary-color: #555;
-  --background-color: #fafafa;
+  --primary-color: #09090b;
+  --primary-accent: #3f3f46;
+  --secondary-color: #a1a1aa;
+  --background-color: #f4f4f5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: #fafafa;
-    --secondary-color: #aaa;
+    --primary-color: #f4f4f5;
+    --primary-accent: #d4d4d8;
+    --secondary-color: #a1a1aa;
     --background-color: #000;
   }
 }
@@ -143,6 +145,7 @@ body {
 .about h2 {
   font-size: 4rem;
   font-weight: 400;
+  color: var(--primary-accent);
 }
 
 .about-list:not(:last-child) {
