@@ -255,6 +255,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .contact-container {
+    width: 90%;
+  }
+
   .contact-arrow {
     height: 4rem;
   }
