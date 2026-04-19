@@ -161,7 +161,6 @@ body {
 .about-item h3 {
   font-size: 3rem;
   font-weight: 300;
-  /* margin-bottom: 1rem; */
   display: flex;
   align-items: center;
   gap: 1rem;
