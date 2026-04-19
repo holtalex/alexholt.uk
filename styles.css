@@ -161,9 +161,14 @@ body {
 .about-item h3 {
   font-size: 3rem;
   font-weight: 300;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.about-projects h3 {
+  margin-bottom: 0;
 }
 
 .about-item-note {
@@ -182,18 +187,22 @@ body {
   padding: 0.5rem 0;
 }
 
-.about-link {
+.about-link, .about-link-big {
   display: inline-block;
   text-decoration: none;
   color: inherit;
 }
 
-.about-link h3, .about-link p {
+.about-link, .about-link-big h3, .about-link-big p {
   transition: transform 0.25s ease;
 }
 
 @media (hover: hover) {
-  .about-link:hover h3, .about-link:hover p {
+  .about-link-big:hover h3, .about-link-big:hover p {
+    transform: skew(-12deg);
+  }
+
+  .about-link:hover {
     transform: skew(-12deg);
   }
 }
