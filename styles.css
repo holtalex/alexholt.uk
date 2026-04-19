@@ -7,7 +7,8 @@
 :root {
   --primary-color: #09090b;
   --primary-accent: #3f3f46;
-  --secondary-color: #a1a1aa;
+  --secondary-color: #71717a;
+  --subtle: #a1a1aa;
   --background-color: #f4f4f5;
 }
 
@@ -16,6 +17,7 @@
     --primary-color: #f4f4f5;
     --primary-accent: #d4d4d8;
     --secondary-color: #a1a1aa;
+    --subtle: #71717a;
     --background-color: #000;
   }
 }
@@ -159,7 +161,7 @@ body {
 .about-item h3 {
   font-size: 3rem;
   font-weight: 300;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -168,7 +170,7 @@ body {
 .about-item-note {
   font-size: 2.5rem;
   font-weight: 200;
-  color: var(--secondary-color);
+  color: var(--subtle);
 }
 
 .about-item p {
@@ -176,15 +178,23 @@ body {
   font-weight: 200;
 }
 
+.languages-tag {
+  color: var(--secondary-color);
+  padding: 0.5rem 0;
+}
+
 .about-link {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+}
+
+.about-link h3, .about-link p {
   transition: transform 0.25s ease;
 }
 
 @media (hover: hover) {
-  .about-link:hover {
+  .about-link:hover h3, .about-link:hover p {
     transform: skew(-12deg);
   }
 }
@@ -239,12 +249,13 @@ body {
 }
 
 .contact-link-container p {
-  font-size: clamp(6rem, 15vw, 15rem);
+  font-size: clamp(6rem, 10vw, 15rem);
   transition: transform 0.25s ease;
 }
 
 .contact-arrow {
   height: 6rem;
+  fill: var(--background-color);
 }
 
 @media (hover: hover) {
