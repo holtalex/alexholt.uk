@@ -39,14 +39,20 @@ body {
 
 .hero {
     width: 95%;
-    margin: 3rem auto 10vh auto;
+    margin: 3rem auto 7.5vh auto;
 }
 
 .hero h1 {
   font-size: clamp(10rem, 20vw, 20rem);
   font-weight: 500;
   line-height: 0.75;
+  padding-bottom: 5vh;
   letter-spacing: -0.04em;
+}
+
+.last-updated {
+  font-size: 3rem;
+  font-weight: 400;
 }
 
 .hero-line-break {

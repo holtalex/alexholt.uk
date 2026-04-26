@@ -6,6 +6,7 @@
 
 :root {
   --primary-color: #09090b;
+  --primary-subtle-accent: #18181b;
   --primary-accent: #3f3f46;
   --secondary-color: #71717a;
   --subtle: #a1a1aa;
@@ -15,6 +16,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: #f4f4f5;
+    --primary-subtle-accent: #fff;
     --primary-accent: #d4d4d8;
     --secondary-color: #a1a1aa;
     --subtle: #71717a;
@@ -35,6 +37,25 @@ body {
 
 @supports (font-variation-settings: normal) {
   body { font-family: InterVariable, sans-serif; }
+}
+
+
+/* HOVER EFFECT FOR HEADINGS */
+
+@media (hover: hover) {
+  /* Add hover effects for individual letters */
+  .text-italic-hover-effect span {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+
+  .text-italic-hover-effect span:nth-child(odd):hover {
+    transform: skewX(-15deg);
+  }
+
+  .text-italic-hover-effect span:nth-child(even):hover {
+    transform: skewX(15deg);
+  }
 }
 
 
@@ -82,20 +103,6 @@ body {
 }
 
 @media (hover: hover) {
-  /* Add hover effects for individual letters */
-  .hero-title span {
-    display: inline-block;
-    transition: transform 0.25s ease;
-  }
-
-  .hero-title span:nth-child(odd):hover {
-    transform: skewX(-15deg);
-  }
-
-  .hero-title span:nth-child(even):hover {
-    transform: skewX(15deg);
-  }
-
   .social-icons svg:hover {
     fill: var(--primary-color);
   }
@@ -227,7 +234,7 @@ body {
 
 .contact-section {
   margin-top: 5vh;
-  padding: 5vh 0;
+  padding: 3vh 0 5vh 0;
   background-color: var(--primary-color);
   color: var(--background-color);
 }
@@ -262,13 +269,130 @@ body {
 }
 
 .contact-arrow {
-  height: 6rem;
+  height: 5rem;
   fill: var(--background-color);
+  transition: transform 0.25s ease;
+}
+
+.contact-arrow-expanded {
+  transform: rotate(90deg);
+}
+
+.contact-heading {
+  font-size: 10rem;
+  font-size: clamp(6rem, 10vw, 12.5rem);
+  /* line-height: 1; */
+  font-weight: 500;
+  margin-bottom: 5vh;
+}
+
+.contact-expanded {
+  display: grid;
+  /* padding: 3rem 2rem 0 2rem; */
+  grid-template-columns: 2fr 4fr;
+  gap: 2rem 5rem;
+  align-items: start;
+  font-size: 2.5rem;
+  /* max-height: 0;
+  overflow: hidden; */
+  transition: max-height 0.4s ease;
+}
+
+.contact-expanded-visible {
+  display: grid;
+  max-height: 600px;
+}
+
+.contact-expanded :where(input, textarea, button) {
+  padding: 1rem;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  font-family: inherit;
+  font-size: 1.35rem;
+  color: var(--background-color);
+  background-color: var(--primary-subtle-accent);
+}
+
+.form-input label, .form-text-area label {
+  transition: transform 0.25s ease;
+}
+
+.form-input:has(input:focus) label, .form-text-area:has(textarea:focus) label {
+  transform: skew(-12deg);
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-input:not(:last-child) {
+  padding-bottom: 1rem;
+}
+
+.form-text-area {
+  grid-column: 2;
+  grid-row: 1 / -3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-expanded textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
+.contact-expanded button {
+  grid-column: 1;
+  height: 5rem;
+  font-size: 2rem;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  transition: color, background-color 0.25s ease;
+}
+
+.contact-button-text {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.contact-expanded button {
+  position: relative;
+}
+
+.contact-button-icon {
+  position: absolute;
+  right: 1.5rem;
+}
+
+.contact-success button {
+  color: var(--background-color);
+  background-color: var(--primary-subtle-accent);
+}
+
+.contact-keep-italics {
+  transform: skew(-12deg);
 }
 
 @media (hover: hover) {
   .contact-link:hover .contact-link-container p {
     transform: translateX(1rem);
+    transform: skew(-12deg);
+  }
+
+  .contact-expanded button:hover {
+    cursor: pointer;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+    background-color: var(--primary-subtle-accent);
+  }
+
+  .contact-expanded button:hover .contact-button-text {
     transform: skew(-12deg);
   }
 }
@@ -279,7 +403,17 @@ body {
   }
 
   .contact-arrow {
-    height: 4rem;
+    height: 3rem;
+  }
+
+  .contact-expanded {
+    grid-template-columns: 1fr;
+  }
+
+  .form-text-area {
+    grid-row: auto;
+    grid-column: auto;
+    height: 15rem;
   }
 }
 
