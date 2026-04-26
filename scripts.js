@@ -20,7 +20,7 @@ function resetContactBtn() {
 
 
 // Handles the submission of the contact form
-contactForm.addEventListener('submit', (event) => {
+function contactFormSubmit() {
     if (contactLastSubmitted >= (Date.now() - submitDelay)) {
         console.warn('Email attempted to be sent before cooldown.')
         document.getElementById('button-text-one').textContent = 'try again in a moment.';
@@ -55,4 +55,4 @@ contactForm.addEventListener('submit', (event) => {
             },
         );
     }
-});
+};
