@@ -1,4 +1,4 @@
-const contactForm = document.getElementById('contact-expanded-one');
+const contactForm = document.getElementById('contact-form-one');
 
 // Variables to prevent people from spamming the send button on the contact form
 const submitDelay = 10000;
@@ -13,7 +13,7 @@ emailjs.init({
 
 // Function to reset the contact button back to default
 function resetContactBtn() {
-    document.getElementById('contact-expanded-one').classList.remove("contact-success"),
+    document.getElementById('contact-form-one').classList.remove("contact-success"),
     document.getElementById('button-text-one').textContent = 'send.',
     document.getElementById('button-icon-one').textContent = ''
 }
@@ -32,13 +32,13 @@ contactForm.addEventListener('submit', (event) => {
     else {
         contactLastSubmitted = Date.now();
 
-        emailjs.sendForm('service_ho9mgsl', 'contact_form', '#contact-expanded-one').then(
+        emailjs.sendForm('service_ho9mgsl', 'contact_form', '#contact-form-one').then(
             (response) => {
                 console.log('Email message sent successfully:', response.status, response.text);
-                document.getElementById('contact-expanded-one').classList.add("contact-success")
+                document.getElementById('contact-form-one').classList.add("contact-success")
                 document.getElementById('button-text-one').textContent = 'sent.';
                 document.getElementById('button-icon-one').textContent = ' ✓';
-                document.getElementById('contact-expanded-one').reset();
+                document.getElementById('contact-form-one').reset();
 
                 setTimeout(() => {
                     resetContactBtn();
