@@ -39,7 +39,7 @@ function contactFormSubmit() {
                 document.getElementById('button-text-one').textContent = 'sent.';
                 document.getElementById('button-icon-one').textContent = ' ✓';
                 document.getElementById('contact-form-one').reset();
-                sa_event("contact_submitted");
+                window.sa_event("contact_submitted");
 
                 setTimeout(() => {
                     resetContactBtn();
