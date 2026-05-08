@@ -21,6 +21,8 @@ function resetContactBtn() {
 
 // Handles the submission of the contact form
 function contactFormSubmit() {
+    document.getElementById('button-text-one').textContent = 'sending...';
+    
     if (contactLastSubmitted >= (Date.now() - submitDelay)) {
         console.warn('Email attempted to be sent before cooldown.')
         document.getElementById('button-text-one').textContent = 'try again in a moment.';
